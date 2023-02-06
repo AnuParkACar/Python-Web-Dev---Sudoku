@@ -1,6 +1,4 @@
 # Anubhav Parbhakar
-# CISC 481 - 010
-# Project 2
 
 assuming that the lastest version of flask has been downloaded on the tester's 
 device
