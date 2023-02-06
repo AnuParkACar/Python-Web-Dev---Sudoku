@@ -1,6 +1,4 @@
 # Anubhav Parbhakar
-# CISC 481 - 010
-# Project 2
 
 documentation for functions:
 
