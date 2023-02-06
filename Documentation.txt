@@ -1,0 +1,157 @@
+# Anubhav Parbhakar
+# CISC 481 - 010
+# Project 2
+
+documentation for functions:
+
+...
+Function name: domain_generator
+Description: takes in a "board", with either numerical values or "nil", 
+and outputs a dict with values assigned for each sqaure, with "nil" getting
+replaced by all of the possible that can be filled in the square
+Input: list
+Output: dict
+Side effects: no direct side effects, could influence every other function 
+in the file
+...
+
+...
+Function name: complete_board_generator
+Description: takes in a list comprised of the board as it is being solved, i.e. 
+n - # of values already assgined, dicts, and fills in the missing assignments,
+i.e. the empty squares, with all possible values, 1...n
+Input: list
+Output: list
+Side effects: modifies the second element of the output of backtracking_search
+...
+
+...
+Function name: revise
+Description: given two variables, var1 and var2 this fucntion ensures that var1
+is consistent w/ var 2 by pruning var1's domain if, after checking the constraints
+, the value in var1's domain did not appear w/ any combination of var2's domain;
+returns true if any value in var1's domain was pruned
+Input: string, string, dict, dict
+Output: bool
+Side effects: prunes value in the domain that is passed in, could influence ac_3(), backtracking_search(),
+backtrack(), unassigned_vars(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path()
+...
+
+...
+Function name: ac_3
+Description: maintains arc consistency for every single variable for the given 
+domain, returns false if consistency could not be established
+Input: dict, dict, 
+Output: bool
+Side effects: no direct side effect could influence backtracking_search(),
+backtrack(), unassigned_vars(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path()
+...
+
+...
+Function name: create_arcs
+Description: helper function for ac_3(), splits up a constraint into its two arcs, 
+which are stored in a list that is returned
+Input: dict
+Output: list
+Side effects: adds a constraint's flipped version (second arc) to the constraints dict,
+could influence ac_3(), backtracking_search(),
+backtrack(), unassigned_vars(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path()
+
+...
+
+...
+Function name: minimum_remaining_values()
+Description: given a list of vars, returns the var with the smallest domain
+Input: list, dict
+Output: string
+Side effects: no direct side effects, could influence revise(), ac_3(), backtracking_search(),
+backtrack(), unassigned_vars(), complete_board_generator(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path() 
+...
+
+...
+Function name: backtracking_search()
+Description: wrapper function for backtrack(), calculates which vars in the init
+board have values assgined to them, with these vars being stored in a key value pair
+in a dict, with this dict, and two empty lists, for the assigned vars path, to store
+the progression of the board, and for the unassigned_vars_path, being returned into the actual
+function as the "state space", along with the constraints, and the problem (domain)
+Input: dict, dict
+Output: backtrack(constraints, domain, statespace)
+Side effects: influences the init input of backtrack(), could influence revise(), ac_3(),
+backtrack(), unassigned_vars(), complete_board_generator(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path() 
+...
+
+...
+Function name: unassigned_vars()
+Description: given the domain, returns a dict with key,value pairs of all vars
+that don't have a definitive value
+Input: dict
+Output: dict
+Side effects: influences backtrack(), unassigned_vars(), and check_unassigned_vars_path()
+...
+
+...
+Function name: is_assignment_complete()
+Description: given a domain, returns true if every var has a definitive value
+assigned to it
+Input: dict
+Output: bool
+Side effects: influences backtrack()
+...
+
+...
+Function name: check_assignment_var_path()
+Description: addresses a bug where the assignment_var_path gets improperly populated,
+or improperly pruned, returns false if this bug occurs
+Input: list
+Output: bool
+Side effects: influences backtrack(), complete_board_generator()
+...
+
+...
+Function name: check_unassigned_vars_path()
+Description: addresses a bug where the unassigned_vars_path could have an empty list more than once,
+returns false the if there are somehow more than one boards that are empty
+Input: list
+Output: bool
+Side effects: influences backtrack()
+...
+
+...
+Function name: backtract()
+Description: uses ac_3 and minimum_remaining_values to go through the values
+w/ undefinitve domains, checks if it can find a solution by setting its value to one of its
+domain values, does this recursing through with an updated domain, the constraints, and the statespace 
+and an update assignments dict, with the given var being added with its value, that is being tested;
+this recursion goes on until a solution is found, or if the value being tested results in a failure,
+in which case, the function back tracks, takes the value out of the assignments dict,
+and tests the next value in the domain of the minimum_remaining_values provided var
+Input: dict, dict, list
+Output: list
+Side effects: influences backtrack(), complete_board_generator; could influence, revise(), ac_3(), unassigned_vars(), complete_board_generator(), is_assignment_complete(), check_assignment_var_path(), and
+check_unassigned_vars_path()  
+...
+
+...
+Function name: reroute()
+Description: reroutes the puzzle string to user() but catches the "favicon" string,
+Input: string
+Output: the url for the user function and the puzzle string, which it is rerouted
+to via the reroute() call
+Side effects: influences user()
+...
+
+...
+Function name: user() 
+Description: takes in the puzzle string, for which a domain is generated, 
+a solution is calculated via a backtracking_search call, and the assignment_var_path
+is "completed" 
+Input: string
+Output: render(.html file, dict, dict, list, list)
+Side effects: influencs the input to the html file
+...

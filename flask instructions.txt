@@ -1,0 +1,19 @@
+# Anubhav Parbhakar
+# CISC 481 - 010
+# Project 2
+
+assuming that the lastest version of flask has been downloaded on the tester's 
+device
+1) run "main.py"
+2) paste "http://127.0.0.1:5000" into the search bar of a web browser
+3) write "/", and enter the python-formatted, puzzle into the search;
+    the query before you hit enter should look something like this:
+        ex: http://127.0.0.1:5000/puzzle
+    note: puzzles.py has puzzles 1 - 5 in python format, so the entire list can
+    simply be copy/pasted into the search bar after the "/"
+          there is also an "empty board" list for inputting a custom puzzle list
+4) the file does not to be re-run every time you want to enter a new puzzle string,
+simply replace the old puzzle string in the seach bar with the new puzzle string, and press
+enter, but make sure the "http://127.0.0.1:5000/" part stays the same 
+5) make sure to close the server after you are finished with the front end by
+    entering CTRL + c into the terminal
