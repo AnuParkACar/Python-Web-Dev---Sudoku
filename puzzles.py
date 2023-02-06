@@ -1,8 +1,5 @@
 # Anubhav Parbhakar
-# CISC 481 - 010
-# Project 2
 
-# I entered the queries into the search in these forms (a list of lists)
 empty_board = [
     ["nil", "nil", "nil", "nil", "nil", "nil", "nil", "nil", "nil"],
     ["nil", "nil", "nil", "nil", "nil", "nil", "nil", "nil", "nil"],
