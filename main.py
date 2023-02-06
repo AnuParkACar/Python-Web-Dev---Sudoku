@@ -1,6 +1,5 @@
 # Anubhav Parbhakar
-# CISC 481 - 010
-# Project 2
+
 import ast
 import copy
 import math
